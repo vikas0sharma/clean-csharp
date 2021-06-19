@@ -99,4 +99,46 @@ Modern way ✔️
 ```csharp
   string fullName = obj?.GetFullName();
 ```
-
+Old way ❌
+```csharp
+  if(obj == null)
+  {
+    throw new ArgumentNullException(nameof(obj));
+  }
+```
+Modern way ✔️
+```csharp
+  _ = obj ?? throw new ArgumentNullException(nameof(obj));
+```
+## Lambda
+Old way ❌
+```csharp
+  public string override ToString()
+  {
+     return $"{FirstName} {LastName}";
+  }
+```
+Modern way ✔️
+```csharp
+  public string override ToString() => $"{FirstName} {LastName}";
+```
+Old way ❌
+```csharp
+  public class Employee
+  {
+    public string Name { get; set; }
+    public Employee(string name)
+    {
+      Name = name;
+    }
+    
+  }
+```
+Modern way ✔️
+```csharp
+  public class Employee
+  {
+    public string Name { get; set; }
+    public Employee(string name) => Name = name;
+  }
+```
